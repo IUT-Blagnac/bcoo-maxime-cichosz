@@ -1,1 +1,35 @@
+@startuml
 
+hide circle
+hide empty methods
+hide empty attributes
+
+class Etudiants {
+  id
+  nom
+  prenom
+  dateNaissance
+  }
+
+class Cours {
+  nomEnseigant
+  prenomEnseignant
+  }
+
+class Examens {
+  date
+  coefficient
+  cour
+  }
+
+class Note {
+  valeur
+  }
+
+Etudiants "1..*" -- "0..*" Cours
+Cours "1..*" -- "1" Examens
+Etudiants "1..*" -- "0..*" Examens
+(Etudiants, Examens) . Note
+
+
+@enduml
